@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="Product-WS-Hibernate" resourceRoot="" soapui-version="4.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="ProductServiceSoapBinding" type="wsdl" bindingName="{http://www.msaidara.product/service}ProductServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="file:/C:/Users/SP35950/Desktop/MyProjet/1-%20Spring%20projet/Spring-JAX-B-CXF-hibernate-WS/product.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Users\SP35950\Desktop\MyProjet\1-%20Spring%20projet\Spring-JAX-B-CXF-hibernate-WS\product.wsdl"><con:part><con:url>file:\C:\Users\SP35950\Desktop\MyProjet\1-%20Spring%20projet\Spring-JAX-B-CXF-hibernate-WS\product.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ProductService" targetNamespace="http://www.msaidara.product/service" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.msaidara.product/service" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.msaidara.product/service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="addProduct" type="tns:addProduct"/>
+      <xs:element name="addProductResponse" type="tns:addProductResponse"/>
+      <xs:element name="deleteProduct" type="tns:deleteProduct"/>
+      <xs:element name="deleteProductResponse" type="tns:deleteProductResponse"/>
+      <xs:element name="getAllProductByPrice" type="tns:getAllProductByPrice"/>
+      <xs:element name="getAllProductByPriceResponse" type="tns:getAllProductByPriceResponse"/>
+      <xs:element name="getProductById" type="tns:getProductById"/>
+      <xs:element name="getProductByIdResponse" type="tns:getProductByIdResponse"/>
+      <xs:element name="inProduct" type="tns:InProduct"/>
+      <xs:element name="outProduct" type="tns:OutProduct"/>
+      <xs:element name="searchProduct" type="tns:searchProduct"/>
+      <xs:element name="searchProductResponse" type="tns:searchProductResponse"/>
+      <xs:element name="updateProduct" type="tns:updateProduct"/>
+      <xs:element name="updateProductResponse" type="tns:updateProductResponse"/>
+      <xs:complexType name="searchProduct">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="searchProductResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:OutProduct"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OutProduct">
+        <xs:sequence>
+          <xs:element name="id" type="xs:int"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element name="price" type="xs:double"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteProduct">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:InProduct"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="InProduct">
+        <xs:sequence>
+          <xs:element name="id" type="xs:int"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element name="price" type="xs:double"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteProductResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getProductById">
+        <xs:sequence>
+          <xs:element name="arg0" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getProductByIdResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:OutProduct"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getAllProductByPrice">
+        <xs:sequence>
+          <xs:element name="arg0" type="xs:double"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getAllProductByPriceResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:OutProduct"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addProduct">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:InProduct"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addProductResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateProduct">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:InProduct"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateProductResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="BusinessException" type="tns:BusinessException"/>
+      <xs:complexType name="BusinessException">
+        <xs:sequence>
+          <xs:element name="code" nillable="true" type="xs:string"/>
+          <xs:element name="message" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getProductByIdResponse">
+    <wsdl:part element="tns:getProductByIdResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addProductResponse">
+    <wsdl:part element="tns:addProductResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductById">
+    <wsdl:part element="tns:getProductById" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="searchProductResponse">
+    <wsdl:part element="tns:searchProductResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllProductByPrice">
+    <wsdl:part element="tns:getAllProductByPrice" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="BusinessException">
+    <wsdl:part element="tns:BusinessException" name="BusinessException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteProduct">
+    <wsdl:part element="tns:deleteProduct" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateProduct">
+    <wsdl:part element="tns:updateProduct" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateProductResponse">
+    <wsdl:part element="tns:updateProductResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addProduct">
+    <wsdl:part element="tns:addProduct" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllProductByPriceResponse">
+    <wsdl:part element="tns:getAllProductByPriceResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="searchProduct">
+    <wsdl:part element="tns:searchProduct" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteProductResponse">
+    <wsdl:part element="tns:deleteProductResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ProductServiceEndpoint">
+    <wsdl:operation name="searchProduct">
+      <wsdl:input message="tns:searchProduct" name="searchProduct"></wsdl:input>
+      <wsdl:output message="tns:searchProductResponse" name="searchProductResponse"></wsdl:output>
+      <wsdl:fault message="tns:BusinessException" name="BusinessException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deleteProduct">
+      <wsdl:input message="tns:deleteProduct" name="deleteProduct"></wsdl:input>
+      <wsdl:output message="tns:deleteProductResponse" name="deleteProductResponse"></wsdl:output>
+      <wsdl:fault message="tns:BusinessException" name="BusinessException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductById">
+      <wsdl:input message="tns:getProductById" name="getProductById"></wsdl:input>
+      <wsdl:output message="tns:getProductByIdResponse" name="getProductByIdResponse"></wsdl:output>
+      <wsdl:fault message="tns:BusinessException" name="BusinessException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllProductByPrice">
+      <wsdl:input message="tns:getAllProductByPrice" name="getAllProductByPrice"></wsdl:input>
+      <wsdl:output message="tns:getAllProductByPriceResponse" name="getAllProductByPriceResponse"></wsdl:output>
+      <wsdl:fault message="tns:BusinessException" name="BusinessException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addProduct">
+      <wsdl:input message="tns:addProduct" name="addProduct"></wsdl:input>
+      <wsdl:output message="tns:addProductResponse" name="addProductResponse"></wsdl:output>
+      <wsdl:fault message="tns:BusinessException" name="BusinessException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateProduct">
+      <wsdl:input message="tns:updateProduct" name="updateProduct"></wsdl:input>
+      <wsdl:output message="tns:updateProductResponse" name="updateProductResponse"></wsdl:output>
+      <wsdl:fault message="tns:BusinessException" name="BusinessException"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProductServiceSoapBinding" type="tns:ProductServiceEndpoint">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="searchProduct">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="searchProduct">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="searchProductResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="BusinessException">
+        <soap:fault name="BusinessException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deleteProduct">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="deleteProduct">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteProductResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="BusinessException">
+        <soap:fault name="BusinessException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllProductByPrice">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllProductByPrice">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllProductByPriceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="BusinessException">
+        <soap:fault name="BusinessException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductById">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getProductById">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getProductByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="BusinessException">
+        <soap:fault name="BusinessException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addProduct">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addProduct">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addProductResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="BusinessException">
+        <soap:fault name="BusinessException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateProduct">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateProduct">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateProductResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="BusinessException">
+        <soap:fault name="BusinessException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProductService">
+    <wsdl:port binding="tns:ProductServiceSoapBinding" name="ProductServiceEndpointPort">
+      <soap:address location="http://localhost:9090/product-WS-Hibernate/services/product"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:9090/product-WS-Hibernate/services/product</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="addProduct" bindingOperationName="addProduct" type="Request-Response" outputName="addProductResponse" inputName="addProduct" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9090/product-WS-Hibernate/services/product</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://www.msaidara.product/service">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:addProduct>
+         <!--Optional:-->
+         <arg0>
+            <id>1</id>
+            <!--Optional:-->
+            <name>coffe</name>
+            <price>1000.20</price>
+         </arg0>
+      </ser:addProduct>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.msaidara.product/service/ProductServiceEndpoint/addProduct"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="deleteProduct" bindingOperationName="deleteProduct" type="Request-Response" outputName="deleteProductResponse" inputName="deleteProduct" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9090/product-WS-Hibernate/services/product</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://www.msaidara.product/service">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:deleteProduct>
+         <!--Optional:-->
+         <arg0>
+      		<id>3</id>
+            <name>LG</name>
+            <price>1000.2</price>
+         </arg0>
+      </ser:deleteProduct>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.msaidara.product/service/ProductServiceEndpoint/deleteProduct"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="getAllProductByPrice" bindingOperationName="getAllProductByPrice" type="Request-Response" outputName="getAllProductByPriceResponse" inputName="getAllProductByPrice" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9090/product-WS-Hibernate/services/product</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://www.msaidara.product/service">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:getAllProductByPrice>
+         <arg0>1000.2</arg0>
+      </ser:getAllProductByPrice>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.msaidara.product/service/ProductServiceEndpoint/getAllProductByPrice"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="getProductById" bindingOperationName="getProductById" type="Request-Response" outputName="getProductByIdResponse" inputName="getProductById" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9090/product-WS-Hibernate/services/product</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://www.msaidara.product/service">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:getProductById>
+         <arg0>3</arg0>
+      </ser:getProductById>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.msaidara.product/service/ProductServiceEndpoint/getProductById"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="searchProduct" bindingOperationName="searchProduct" type="Request-Response" outputName="searchProductResponse" inputName="searchProduct" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9090/product-WS-Hibernate/services/product</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://www.msaidara.product/service">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:searchProduct>
+         <!--Optional:-->
+         <arg0>coffe</arg0>
+      </ser:searchProduct>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.msaidara.product/service/ProductServiceEndpoint/searchProduct"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="updateProduct" bindingOperationName="updateProduct" type="Request-Response" outputName="updateProductResponse" inputName="updateProduct" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9090/product-WS-Hibernate/services/product</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://www.msaidara.product/service">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:updateProduct>
+         <!--Optional:-->
+         <arg0>
+            <id>?</id>
+            <!--Optional:-->
+            <name>?</name>
+            <price>?</price>
+         </arg0>
+      </ser:updateProduct>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.msaidara.product/service/ProductServiceEndpoint/updateProduct"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>
