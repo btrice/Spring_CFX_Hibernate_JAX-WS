@@ -13,7 +13,6 @@ import fr.msaidara.model.Product;
 import fr.msaidara.dao.ProductDAO;
 
 
-// End of user code
 
 @Service("ProductService")
 public class ProductServiceImpl implements ProductService {
